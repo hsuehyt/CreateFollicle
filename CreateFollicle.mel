@@ -1,7 +1,0 @@
-string $sel[] = `ls -sl`;
-string $fol = `createNode follicle`;
-string $folShape = `listRelatives -s $fol`;
-connectAttr ($sel[0] + ".worldMatrix[0]") ($folShape + ".inputWorldMatrix");
-connectAttr ($sel[0] + ".outMesh") ($folShape + ".inputMesh");
-connectAttr ($folShape + ".outTranslate") ($fol + ".translate");
-connectAttr ($folShape + ".outRotate") ($fol + ".rotate");

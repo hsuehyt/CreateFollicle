@@ -1,5 +1,5 @@
-### **📌 CreateFollicle**
-A Python script for Autodesk Maya that creates a **follicle-based rivet** on a selected face. This is useful for attaching objects (e.g., locators) to deforming geometry, such as rigged characters.
+# **Create Follicle on Vertex**
+A Python script for **Autodesk Maya** that creates a **follicle-based rivet on a selected vertex**. This allows objects (e.g., locators) to stay attached to deforming geometry, such as rigged characters.
 
 ---
 
@@ -9,7 +9,7 @@ A Python script for Autodesk Maya that creates a **follicle-based rivet** on a s
      ```sh
      git clone https://github.com/hsuehyt/CreateFollicle.git
      ```
-   - Or **Download the `create_follicle_rivet.py` file** directly.
+   - Or **Download `create_follicle_on_vertex.py`** directly.
 
 2. **Move the script to your Maya scripts directory**:
    - **Windows:** `C:\Users\YourUser\Documents\maya\scripts`
@@ -20,39 +20,42 @@ A Python script for Autodesk Maya that creates a **follicle-based rivet** on a s
 
 ## **🚀 Usage**
 1. **Open Autodesk Maya**.
-2. **Select a face** on the mesh where you want to create the follicle.
+2. **Select a vertex** on the mesh where you want to create the follicle.
 3. **Run the script in Maya’s Script Editor**:
    ```python
-   import create_follicle_rivet
+   import create_follicle_on_vertex
    ```
-4. A follicle will be created at the center of the selected face.
-5. **Parent your object (e.g., a locator) to the follicle** to make it follow the surface.
+4. A **follicle will be created at the selected vertex**.
+5. **Parent your object (e.g., a locator) to the follicle** to make it follow the vertex.
 
 ---
 
 ## **🎯 Features**
-✅ Automatically creates a follicle on the selected face  
-✅ Connects the follicle properly to the mesh  
-✅ Supports animated and deformed meshes  
-✅ Works on both **Windows** and **Mac**  
+✅ Automatically creates a follicle on the selected **vertex**  
+✅ Works on **deforming geometry** (e.g., skinned characters)  
+✅ Stable even when topology changes  
+✅ Works on **Windows, Mac, and Linux**  
 
 ---
 
-## **🛠️ Customizing the Script**
-You can manually adjust the follicle's **U/V parameters** in the **Attribute Editor** under `follicleShape` to fine-tune its position.
+## **🛠️ How It Works**
+- Converts the **selected vertex** into **UV coordinates**.
+- Creates a **follicle** at that **UV position**.
+- **Connects the follicle** properly to the mesh.
+- The follicle **sticks to the vertex**, even if the geometry deforms.
 
 ---
 
 ## **📖 Example**
 ```python
-import create_follicle_rivet
+import create_follicle_on_vertex
 ```
-After running this, a follicle will appear on the selected face.
+After running this, a **follicle will appear at the selected vertex**.
 
 ---
 
 ## **🐞 Troubleshooting**
-- If the follicle doesn’t attach, ensure your **mesh is not frozen** (`Modify > Freeze Transformations`).
+- If the follicle doesn’t attach, ensure your **mesh has UVs** (`UV Editor > Layout UVs`).
 - Try adjusting the **U/V values** in the follicle’s attributes.
 - If you don’t see the follicle, check the **Outliner** (`Window > Outliner`).
 
